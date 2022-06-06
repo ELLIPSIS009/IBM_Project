@@ -1,0 +1,51 @@
+﻿{% from "_formhelpers.html" import render_error %}
+{% extends "base.html" %}
+{% block style %}
+<link rel="stylesheet" href="{{ url_for('static', filename='content/contactstyle.css') }}">
+{% endblock %}
+{% block content %}
+{% if success %}
+<h2 class="contact-form">Thank you for your message. We'll get back to you shortly.</h2>
+{% else %}
+<!-- Contact Us Form -->
+<div class="contact-container">
+    <div class="contact-form">
+        <form action="{{ url_for('main.contact') }}" method="post">
+            <h2>Get In Touch With Us!</h2>
+            {{ form.hidden_tag() }}
+
+            <div class="contact-form-input">
+                {{ form.name }}
+                <span>Full Name</span>
+            </div>
+            {{ render_error(form.name) }}
+
+            <div class="contact-form-input">
+                {{ form.email }}
+                <span>Email</span>
+            </div>
+            {{ render_error(form.email) }}
+
+            <div class="contact-form-input">
+                {{ form.subject }}
+                <span>Subject</span>
+            </div>
+            {{ render_error(form.subject) }}
+
+            <div class="contact-form-input">
+                {{ form.message }}
+                <span>Enter your message here</span>
+            </div>
+            {{ render_error(form.message) }}
+
+            <div class="contact-form-input">
+                {{ form.submit }}
+            </div>
+        </form>
+    </div>
+    <div class="contact-form-img">
+        <img src="{{ url_for('static', filename='resources/images/Contact.svg') }}" alt="" />
+    </div>
+</div>
+{% endif %}
+{% endblock %}

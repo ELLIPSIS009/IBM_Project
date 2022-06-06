@@ -1,0 +1,176 @@
+﻿{% from "_formhelpers.html" import render_error %}
+{% extends "base.html" %}
+{% block style %}
+<link rel="stylesheet" href="{{ url_for('static', filename='content/settingstyle.css') }}">
+{% endblock %}
+
+{% block message %}
+{% endblock %}
+
+{% block content %}
+<div id="settings" ontouchstart="true">
+    <input checked="checked" class="settings-nav" name="settings-nav" type="radio" />
+    <span class="settings-nav">Profile</span>
+    <input class="settings-nav" name="settings-nav" type="radio" />
+    <span class="settings-nav">Account</span>
+    <input class="settings-nav" name="settings-nav" type="radio" />
+    <span class="settings-nav">Privacy</span>
+    <input class="settings-nav" name="settings-nav" type="radio" />
+    <span class="settings-nav">Advanced</span>
+    <main class="content">
+        <section id="profile">
+            <h1 style="text-align: center; padding-top: 5rem;">Update Details</h1>
+            {% if current_user.urole == 'student' %}
+            <form action="{{ url_for('main.settings_knewbie_id') }}" method="post">
+                {{ knewbieForm.hidden_tag() }}
+                <ul>
+                    <li class="large padding">
+                        <fieldset class="settings-button center">
+                            <div>
+                                {{ knewbieForm.submit(class_="save") }}
+                            </div>
+                        </fieldset>
+                    </li>
+                </ul>
+            </form>
+            {% endif %}
+            <form action="{{ url_for('main.settings') }}" method="post" enctype="multipart/form-data">
+                {{ form.hidden_tag() }}
+                <ul>
+                    <li class="large padding avatar">
+                        <img src="{{ image_file }}" />
+                        <div>
+                            <fieldset class="settings-button center">
+                                <div class="image-btn" style="margin-bottom: 1rem;">
+                                    {{ form.image(class_="create-btn") }}
+                                </div>
+
+                            </fieldset>
+                        </div>
+                    </li>
+
+                    <li>
+                        <fieldset class="settings-input">
+                            <div>
+                                {{ form.firstName }}
+                                <label>First Name</label>
+                                <hr />
+                            </div>
+                            {{ render_error(form.firstName) }}
+                        </fieldset>
+                    </li>
+
+                    <li>
+                        <fieldset class="settings-input">
+                            <div>
+                                {{ form.lastName }}
+                                <label>Last Name</label>
+                                <hr />
+                            </div>
+                            {{ render_error(form.lastName) }}
+                        </fieldset>
+                    </li>
+                    <li>
+
+                    <li class="large padding">
+                        <fieldset class="settings-button center">
+                            <div>
+                                {{ form.submit(class_="save") }}
+                            </div>
+                        </fieldset>
+                    </li>
+
+                    {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                    <ul class="flashes" style="margin: 0 auto;">
+                        {% for message in messages %}
+                        <li style="color: red; font-size: 25px; width: 100%;">{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+                    {% endwith %}
+                </ul>
+            </form>
+
+        </section>
+
+        <section id="account">
+            <h1 style="text-align: center; padding-top: 3rem;">Change Password</h1>
+            <form action="{{ url_for('main.change_pw') }}" method="post">
+                {{ pwForm.hidden_tag() }}
+                <ul>
+                    <li>
+                        <fieldset class="settings-input">
+                            <div>
+                                <input required type="email" value="{{ current_user.email }}" />
+                                <label>Email</label>
+                                <hr />
+                            </div>
+                        </fieldset>
+                    </li>
+                    <li>
+                        <fieldset class="settings-input">
+                            <div>
+                                {{ pwForm.password }}
+                                <label>Current Password</label>
+                                <hr />
+                            </div>
+                            {{ render_error(pwForm.password) }}
+                        </fieldset>
+                    </li>
+                    <li>
+                        <fieldset class="settings-input">
+                            <div>
+                                {{ pwForm.newPassword }}
+                                <label>New Password</label>
+                                <hr />
+                            </div>
+                            {{ render_error(pwForm.newPassword) }}
+                        </fieldset>
+                    </li>
+
+                    <li>
+                        <fieldset class="settings-input">
+                            <div>
+                                {{ pwForm.confirmPassword }}
+                                <label>Confirm Password</label>
+                                <hr />
+                            </div>
+                            {{ render_error(pwForm.confirmPassword) }}
+                        </fieldset>
+                    </li>
+
+                    <li class="large padding">
+                        <fieldset class="settings-button center">
+                            <div>
+                                {{ pwForm.submit(class_="save") }}
+                            </div>
+                        </fieldset>
+                    </li>
+                </ul>
+            </form>
+
+            <h1 style="text-align: center; padding-top: 3rem; width: 100vw; position: relative; margin: 0 auto;">Change Email Address</h1>
+                <ul>
+                    <li class="large padding">
+                        <fieldset class="settings-button center">
+                            <a href="{{ url_for('auth.reset_email') }}" class="email-btn" id="signupnow">Update and Link new Email</a>
+                        </fieldset>
+                        <div class="zone" style="padding-top: 3rem;">
+                            <p> Danger Zone <p />
+                            <hr />
+                            <a href="{{ url_for('auth.request_deactivate') }}" class="deact-btn">Deactivate Account</a>
+                        </div>
+                    </li>
+                </ul>
+        </section>
+
+        <section class="upcoming" id="privacy">
+            <h1>Coming soon!</h1>
+        </section>
+        <section class="upcoming" id="advanced">
+            <h1>Coming soon!</h1>
+        </section>
+    </main>
+</div>
+{% endblock %}

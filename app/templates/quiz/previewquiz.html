@@ -1,0 +1,49 @@
+﻿{% extends "base.html" %}
+{% block style %}
+<link rel="stylesheet" href="{{ url_for('static', filename='content/quizstyle.css') }}">
+{% endblock %}
+{% block content %}
+<div class="preview-quiz-container" style="overflow: scroll;">
+    <div id="quiz">
+        <h1 style="margin-top: 3rem;">{{ quiz.name }}</h1>
+        <form action="{{ url_for('quiz.deletequiz', quizID=quiz.id) }}" method="post" class="create-form" style="margin: 1rem 0 3rem 0;">
+            {{ delQuizForm.hidden_tag() }}
+            {{ delQuizForm.submit(class_="delete-btn", placeholder="Delete Quiz") }}
+        </form>
+
+        {% for qnID in questions %}
+        <h2 id="question">{{ questions[qnID]['question'] }}</h2>
+        <form action="{{ url_for('quiz.deleteqn', quizID=quiz.id, qnID=qnID) }}" method="post" class="create-form">
+            {{ delQnForm.hidden_tag() }}
+            {{ delQnForm.submit(class_="delete-btn float", placeholder="Delete Question") }}
+        </form>
+        <a href="{{ url_for('quiz.editqn', qnID=qnID) }}" class="edit-btn float"> Edit </a>
+
+        {% if questions[qnID]['image'] %}
+        <img src="{{ url_for('static', filename='resources/images/quiz')}}/{{ questions[qnID]['image'] }}" class="pic" alt="">
+        {% endif %}
+
+        <ol class="preview-qn">
+            {% for optID, opt in questions[qnID]['options'].items() %}
+            <li class="options-container" id="options-container">
+                <p class="options-prefix">{{loop.index}}</p>
+                <label>
+                    <input type="radio" class="options" name="option" id="{{optID}}" value="{{optID}}">
+                    {% if optID == questions[qnID]['answer'] %}
+                    <span class="answer">Answer: {{opt}}</span>
+                    {% else %}
+                    <span>{{opt}}</span>
+                    {% endif %}
+                </label>
+            </li>
+
+            {% endfor %}
+        </ol>
+        {% endfor %}
+
+        <a href="{{ url_for('quiz.createqn', quizID=quiz.id) }}" class="edit-btn" style="margin-bottom: 8rem;">Add Question</a>
+
+    </div>
+
+</div>
+{% endblock %}

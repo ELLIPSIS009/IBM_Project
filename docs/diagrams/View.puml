@@ -1,0 +1,25 @@
+@startuml
+
+package View {
+Interface render_template <<Interface>>
+Class base
+Class WebPage
+Class sidebar
+
+}
+
+package Controller{
+}
+
+package Model{
+}
+
+Model --> render_template
+render_template --> Controller
+Controller --> base
+base -l> sidebar
+sidebar --> WebPage
+base --> WebPage
+
+
+@enduml

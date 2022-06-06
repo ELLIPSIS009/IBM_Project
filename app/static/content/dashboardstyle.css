@@ -1,0 +1,357 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: var(--OFFWHITE);
+}
+
+/* MAIN BODY */
+
+.box {
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, .1);
+    width: 100%;
+    padding: 30px;
+    text-align: center;
+    border-radius: 5px;
+    border-bottom: 1px solid rgba(0, 0, 0, .1);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 50%;
+}
+
+.box h1 {
+    font-size: 5rem;
+    color: var(--LIGHTPURPLE);
+    letter-spacing: 2px;
+    margin-right: -2px;
+    margin-bottom: 4rem;
+    position: relative;
+}
+
+.box h1::after {
+    content: "";
+    width: 10rem;
+    height: .5rem;
+    background-color: var(--PURPLE);
+    position: absolute;
+    bottom: -1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2rem;
+}
+
+.box .details {
+    margin-top: 30px;
+}
+
+.box h2 {
+    color: var(--LIGHTPURPLE);
+    font-size: 3rem;
+}
+
+.box p {
+    font-size: 1.6rem;
+    color: var(--PURPLE);
+}
+
+.join {
+    display: block;
+    outline: none;
+    border: none;
+    width: 250px;
+    border-radius: 0.4rem;
+    padding: 10px 15px;
+    margin: 2rem auto;
+    display: block;
+    text-align: center;
+    font-size: 1.4rem;
+    color: var(--OFFWHITE);
+    transition-duration: 0.25s;
+    background-color: rgba(170, 7, 107, 0.3);
+}
+
+.join:focus,
+.join:active {
+    background-color: var(--LIGHTPURPLE);
+    color: var(--OFFWHITE);
+    width: 300px;
+}
+
+.join::placeholder {
+    color: var(--ORANGE);
+}
+
+
+.join-btn:hover {
+    background: var(--OFFWHITE);
+    border: 1px solid var(--LIGHTPURPLE);
+    color: var(--LIGHTPURPLE);
+}
+
+.join-btn:active {
+    transform: scale(0.98);
+}
+
+.join-btn {
+    display: inline-flex;
+    background: var(--LIGHTPURPLE);
+    color: var(--OFFWHITE);
+    position: relative;
+    margin-bottom: 1rem;
+    padding: 1rem 4rem;
+    font-size: 1.8rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-decoration: none;
+    border: none;
+    border-radius: .4rem;
+    box-shadow: 3px 3px 1rem rgba(0, 0, 0, 0.3);
+    outline: none;
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+}
+
+.btn {
+    font-weight: bold;
+    display: inline-block;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    text-decoration: none;
+    color: var(--OFFWHITE);
+    background: var(--LIGHTPURPLE);
+    padding: 1rem 4rem;
+    margin-top: 1rem;
+    border-radius: .4rem;
+    box-shadow: 3px 3px 1rem rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    outline: none;
+    position: relative;
+    z-index: 1;
+}
+
+.btn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: inherit;
+    border-radius: inherit;
+    z-index: -1;
+}
+
+.btn:hover::after {
+    transform: scaleX(1.2) scaleY(1.4);
+    opacity: 0;
+    transition: all .5s;
+}
+
+.btn:active {
+    transform: translateY(1.5px);
+}
+
+/* CARD EFFECT */
+.card-wrapper {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    flex-direction: column;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    width: 32rem;
+    background-color: var(--GREY);
+    align-items: center;
+    justify-content: center;
+    margin: 2rem 0;
+    box-shadow: .5rem .5rem 3rem rgba(0, 0, 0, 0.2);
+    border-radius: .4rem;
+}
+
+.card-background {
+    width: 100%;
+    height: 15rem;
+    object-fit: cover;
+    background-color: var(--LIGHTPURPLE);
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 73%, 0% 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 73%, 0% 100%);
+    border-radius: .4rem;
+}
+
+.quiz-symbol {
+    width: 15rem;
+    height: 15rem;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-top: -10rem;
+    z-index: 2;
+    border: 1rem solid var(--GREY);
+}
+
+.card h2 {
+    font-size: 2.5rem;
+    margin: 1rem 0;
+    color: var(--ORANGE);
+}
+
+.card .btn {
+    margin-bottom: 3rem;
+}
+
+@media screen and (min-width: 700px) {
+    .card-wrapper {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .card {
+        margin: 2rem;
+        transition: transform .5s;
+    }
+
+    .card:hover {
+        transform: scale(1.07);
+    }
+}
+
+/* SPLIT SCREEN */
+.split-container {
+    position: relative;
+    width: 100%;
+    height: 70%;
+    background: var(--GREY);
+}
+
+.left h1 {
+    color: var(--LIGHTPURPLE);
+    font-size: 3.6rem;
+}
+
+.right h1 {
+    color: var(--OFFWHITE);
+    font-size: 3.6rem;
+}
+
+.split-btn {
+  display: inline-block;
+  position: absolute;
+  left: 50%;
+  top: 60%;
+  text-align: center;
+  font-weight: bold;
+  text-transform: uppercase;
+  transform: translateX(-50%);
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+  text-decoration: none;
+  padding: 1rem 4rem;
+  border-radius: .4rem;
+  box-shadow: 3px 3px 1rem rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+
+.left .split-btn {
+  color: var(--OFFWHITE);
+  background-color: var(--LIGHTPURPLE);
+}
+
+.right .split-btn {
+  color: var(--LIGHTPURPLE);
+  background-color: var(--OFFWHITE);
+}
+
+.split-btn::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: inherit;
+  border-radius: inherit;
+  z-index: -1;
+}
+
+.split-btn:hover::after {
+  transform: scaleX(1.2) scaleY(1.4);
+  opacity: 0;
+  transition: all .5s;
+}
+
+.split {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.left {
+  left: 0;
+  background: url('../resources/images/Teacher.svg') center center no-repeat;
+  background-size: 40vh;
+  background-color: rgba(0, 0, 0, .7);
+}
+
+.left::before {
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 100%;
+  background: var(--OFFWHITE);
+  opacity: 0.6;
+}
+
+.right {
+  right: 0;
+  background: url('../resources/images/Student.svg') center center no-repeat;
+  background-size: 35vh;
+}
+
+.right::before {
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 100%;
+  opacity: 0.7;
+  background: var(--LIGHTPURPLE);
+}
+
+.left, .right, .right::before, .left::before {
+  transition: var(--speed) all ease-in-out;
+}
+
+.hover-left .left {
+  width: var(--hover-width);
+}
+
+.hover-left .right {
+  width: var(--width);
+}
+
+.hover-left .right::before {
+  z-index: 2;
+}
+
+.hover-right .right {
+  width: var(--hover-width);
+}
+
+.hover-right .left {
+  width: var(--width);
+}
+
+.hover-right .left::before {
+  z-index: 2;
+}

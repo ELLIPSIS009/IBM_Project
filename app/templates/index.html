@@ -1,0 +1,48 @@
+{% from "_formhelpers.html" import render_error %}
+{% extends "base.html" %}
+{% block style %}
+<link rel="stylesheet" href="{{ url_for('static', filename='content/homepagestyle.css') }}">
+{% endblock %}
+{% block content %}
+<section class="gradient" id="home-page">
+    <div class="gradient-textbox">
+        <h1 class="text">Knewbie</h1>
+        <h2 class="subtext">Knowledge is Power. Even if you are a Noobie.</h2>
+        <a href="{{ url_for('auth.reg') }}" class="home-btn" id="signupnow">REGISTER!</a>
+    </div>
+    <div class="gradient-clipped">
+        <form class="login-form" action="" method="post">
+            {{ loginForm.hidden_tag() }}
+            <h2 class="sign-in">Sign In</h2>
+            <div class="input-field">
+                {{ loginForm.email(size=32, placeholder="Email") }}
+                {{ render_error(loginForm.email) }}
+            </div>
+            <div class="input-field">
+                {{ loginForm.password(size=32, placeholder="Password") }}
+                {{ render_error(loginForm.password) }}
+            </div>
+            {{ loginForm.submit(class_="signIn-btn") }}
+            <div class="bottom-text">
+                <p>Forgot your password? <a href="{{ url_for('auth.request_reset_password') }}">Click here!</a></p>
+            </div>
+        </form>
+    </div>
+</section>
+
+<!-- DIVIDER ILLUSTRATION -->
+<div class="background"></div>
+
+<!-- UNIQUE ID PROGRESS QUERY -->
+<div class="query">
+    <h1>ENTER YOUR UNIQUE ID TO GET YOUR PROGRESS REPORT!</h1>
+    <div class="query-form">
+        <form class="login-form" action="{{ url_for('main.get_report') }}" method="post">
+            {{ codeForm.hidden_tag() }}
+            {{ codeForm.title(class_="border-bottom", placeholder="Knewbie ID")}}
+            {{ render_error(codeForm.title) }}
+            {{ codeForm.submit(class_="signIn-btn")}}
+        </form>
+    </div>
+</div>
+{% endblock %}

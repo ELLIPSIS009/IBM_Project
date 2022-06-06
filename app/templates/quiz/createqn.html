@@ -1,0 +1,39 @@
+﻿{% from "_formhelpers.html" import render_error %}
+{% extends "base.html" %}
+{% block style %}
+<link rel="stylesheet" href="{{url_for('static', filename='content/createstyle.css')}}">
+{% endblock %}
+{% block content %}
+<div class="create-class-wrapper">
+    <div class="create-container">
+        <form action="" method="post" class="create-form" enctype="multipart/form-data">
+            {{ form.hidden_tag() }}
+            {% if edit %}
+            <h1>Edit Question</h1>
+            {% else %}
+            <h1>Create A New Quiz</h1>
+            {% endif %}
+            {{ form.topic(placeholder="Select Topic", class_="center") }}
+            {{ render_error(form.topic) }}
+            {{ form.qn(size=32, placeholder="Input Question") }}
+            {{ render_error(form.qn) }}
+            {{ form.op1(size=32, placeholder="Option 1") }}
+            {{ render_error(form.op1) }}
+            {{ form.op2(size=32, placeholder="Option 2") }}
+            {{ render_error(form.op2) }}
+            {{ form.op3(size=32, placeholder="Option 3") }}
+            {{ render_error(form.op3) }}
+            {{ form.op4(size=32, placeholder="Option 4") }}
+            {{ render_error(form.op4) }}
+            {{ form.corrOp(placeholder="Correct Option") }}
+            {{ render_error(form.corrOp) }}
+            {{ form.img() }}
+            {{ render_error(form.img) }}
+            {% if not edit %}
+            {{ form.submit(class_="submit-btn") }}
+            {% endif %}
+            {{ form.complete(class_="submit-btn") }}
+        </form>
+    </div>
+</div>
+{% endblock %}

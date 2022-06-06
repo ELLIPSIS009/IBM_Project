@@ -1,0 +1,125 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|Open+Sans+Condensed:300,700);
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
+
+main {
+    display: grid;
+    grid-template-columns: 1fr 2.5fr 1fr 1fr 1fr;
+    grid-template-areas: 
+        "header header header header header" 
+        ". title-header title-count title-time .";
+    margin-left: 250px;
+}
+
+.forum-header {
+    grid-area: header;
+}
+
+.forum-header h1 {
+    color: var(--LIGHTPURPLE);
+    padding: 3rem 3rem 1rem 3rem;
+    font-size: 3rem;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.forum-header h5 {
+    color: var(--PURPLE);
+    padding: 0 3rem 3rem 3rem;
+    font-size: 1.5rem;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.forum-header h5 a {
+    color: var(--PURPLE);
+    text-decoration: none;
+}
+
+
+.create-thread {
+    margin-top: 50px;
+    margin-left: 250px;
+}
+
+.forum-title {
+    grid-area: title-header;
+    padding: 2rem 0 2rem 3rem;
+    color: var(--OFFWHITE);
+    background: var(--LIGHTPURPLE);
+    border-top-left-radius: 0.4rem;
+}
+
+.forum-count {
+    grid-area: title-count;
+    text-align: center;
+    padding: 2rem 0;
+    color: var(--OFFWHITE);
+    background: var(--LIGHTPURPLE);
+}
+
+.forum-time {
+    grid-area: title-time;
+    text-align: center;
+    padding: 2rem 0;
+    color: var(--OFFWHITE);
+    background: var(--LIGHTPURPLE);
+    border-top-right-radius: 0.4rem;
+}
+
+/* THREAD LINKS */
+
+.threads-grid {
+    display: grid;
+    grid-template-columns: 1fr 2.5fr 1fr 1fr 1fr;
+    grid-template-areas: ". title count time .";
+    margin-left: 250px;
+}
+
+.post-title {
+    grid-area: title;
+    padding: 1rem 1rem 1rem 3rem;
+    box-shadow: 0 2px 2px -2px gray;
+}
+
+.post-title a {
+    text-decoration: none;
+    text-transform: uppercase;
+    font-family: 'Open Sans', sans-serif;
+    
+}
+
+.post-title a:hover {
+    text-decoration: underline;
+}
+
+.post-count {
+    grid-area: count;
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 2px 2px -2px gray;
+}
+
+.time-stamp {
+    grid-area: time;
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 2px 2px -2px gray;
+}
+
+.odd {
+    background: var(--OFFWHITE);
+    color: var(--LIGHTPURPLE);
+}
+
+.odd a {
+    color: var(--LIGHTPURPLE);
+}
+
+.even {
+    background: var(--DARKPURPLE);
+    color: white;
+}
+
+.even a {
+    color: white;
+}

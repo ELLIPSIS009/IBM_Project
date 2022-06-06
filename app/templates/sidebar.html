@@ -1,0 +1,25 @@
+﻿{% extends "base.html" %}
+{% block style %}
+<link rel="stylesheet" href="{{ url_for('static', filename='content/sidebarstyle.css') }}">
+{% endblock %}
+{% block content %}
+<div class="sidebar">
+    <div>
+        <img src="{{ image_file }}" class="pic" alt="">
+        <h4>{{ current_user.firstName }} {{ current_user.lastName }}</h4>
+        {% if current_user.urole == 'student' %}
+        <p>Knewbie ID: {{ current_user.knewbie_id }} </p>
+        {% endif %}
+        <h2> {{ group.name }}</h2>
+        <h2>Class code: {{ group.classCode }}</h2>
+    </div>
+    <a href="{{ url_for('group.classquiz', groupID=group.id) }}"><i class="fas fa-edit"></i><span>Quizzes</span></a>
+    <a href="{{ url_for('forum.forum', groupID=group.id) }}"><i class="fas fa-comments"></i><span>Forum</span></a>
+    <a href="{{ url_for('group.leaderboard', groupID=group.id) }}"><i class="fas fa-list"></i><span>Leaderboard</span></a>
+    {% if current_user.urole == 'educator' %}
+    <div class="separator"></div>
+    <a href="{{ url_for('group.edit_participants', groupID=group.id) }}"><i class="fas fa-users"></i><span>Edit Participants</span></a>
+    <a href="{{ url_for('group.class_settings', groupID=group.id) }}"><i class="fas fa-cogs"></i><span>Class Settings</span></a>
+    {% endif %}
+</div>
+{% endblock %}

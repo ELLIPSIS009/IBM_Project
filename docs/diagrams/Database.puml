@@ -1,0 +1,147 @@
+@startuml
+' avoid problems with angled crows feet
+' skinparam linetype ortho
+
+entity User {
+*id
+--
+firstName
+lastName
+email
+password_hash
+urole
+confirmed
+confirmed_on
+knewbie_id
+curr_theta
+image_file
+}
+
+entity Response {
+*id
+--
+userID
+optID
+qnID
+}
+
+entity Question {
+*id
+--
+question
+discrimination
+difficulty
+guessing
+upper
+topicID
+image_file
+}
+
+entity Option {
+*id
+--
+qnID
+option
+}
+
+entity Answer {
+*id
+--
+optID
+qnID
+}
+
+entity Thread {
+*id
+--
+groupID
+timestamp
+title
+}
+
+entity Post {
+*id
+--
+userID
+threadID
+timestamp
+content
+}
+
+entity Group {
+*id
+--
+name
+}
+
+entity UserGroup {
+*id
+--
+groupID
+userID
+}
+
+entity Proficiency {
+*id
+--
+userID
+timestamp
+theta
+topicID
+}
+
+entity Quiz {
+*id
+--
+userID
+name
+}
+
+entity GroupQuiz {
+*id
+--
+groupID
+quizID
+}
+
+entity QuestionQuiz {
+*id
+--
+quizID
+questionID
+}
+
+entity Topic {
+*id
+--
+name
+}
+
+User ||--|{ Response
+
+Response }|--|| Option
+Response }|--|| Question
+Option }|--|| Question
+Answer ||--|| Question
+Option ||--|| Answer
+
+
+User ||--|{ UserGroup
+Group ||--|{ UserGroup
+Thread }|--|| Group
+Post }|--|| Thread
+Post }|--|| User
+User ||--|{ Proficiency
+
+Quiz }|--|| User
+User ||--|{ Question
+Question ||--|{ QuestionQuiz
+QuestionQuiz }|--|| Quiz
+Question }|--|| Topic
+Proficiency }|--|| Topic
+
+Group ||--|{ GroupQuiz
+GroupQuiz }|--|| Quiz
+
+
+@enduml
