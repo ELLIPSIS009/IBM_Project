@@ -4,6 +4,11 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='content/poststyle.css') }}">
 {% endblock %}
 {% block content %}
+<style>
+    .dk-footer{
+        display: none;
+    }
+</style>
 <div>
     {% if thread %}
     <div class="thread-title">
@@ -39,8 +44,6 @@
 
     {% endif %}
     {% endif %}
-
-    
 
     <div class="form-container">
         <div class="post-form">

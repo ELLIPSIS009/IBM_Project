@@ -6,8 +6,8 @@
 {% block content %}
 <section class="gradient" id="home-page">
     <div class="gradient-textbox">
-        <h1 class="text">Knewbie</h1>
-        <h2 class="subtext">Knowledge is Power. Even if you are a Noobie.</h2>
+        <h1 class="text">INFOBOT</h1>
+        <h2 class="subtext">Information Is Power, Even For A BOT.</h2>
         <a href="{{ url_for('auth.reg') }}" class="home-btn" id="signupnow">REGISTER!</a>
     </div>
     <div class="gradient-clipped">
@@ -29,20 +29,5 @@
         </form>
     </div>
 </section>
-
-<!-- DIVIDER ILLUSTRATION -->
-<div class="background"></div>
-
-<!-- UNIQUE ID PROGRESS QUERY -->
-<div class="query">
-    <h1>ENTER YOUR UNIQUE ID TO GET YOUR PROGRESS REPORT!</h1>
-    <div class="query-form">
-        <form class="login-form" action="{{ url_for('main.get_report') }}" method="post">
-            {{ codeForm.hidden_tag() }}
-            {{ codeForm.title(class_="border-bottom", placeholder="Knewbie ID")}}
-            {{ render_error(codeForm.title) }}
-            {{ codeForm.submit(class_="signIn-btn")}}
-        </form>
-    </div>
-</div>
+<br><br><br><br>
 {% endblock %}

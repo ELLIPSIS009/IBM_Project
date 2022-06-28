@@ -3,11 +3,10 @@
 {% block style %}
 <link rel="stylesheet" href="{{ url_for('static', filename='content/regstyle.css') }}">
 {% endblock %}
-
 {% block content %}
-<div class="container" id="container">
-    <div class="form-container edu-container">
-        <form action="{{ url_for('auth.regedu') }}" method="post" id="eduForm">
+<div class="cont" id="cont">
+    <div class="form-cont edu-cont">
+        <form action="{{ url_for('auth.regedu') }}" method="post" id="eduForm" class="fform">
             <h1>Create An Educator Account</h1>
             {{ eduForm.hidden_tag() }}
             <div class="input-field">
@@ -27,8 +26,8 @@
             {{ eduForm.submit(class_="register-btn") }}
         </form>
     </div>
-    <div class="form-container stu-container">
-        <form action="{{ url_for('auth.regstu') }}" method="post" id="stuForm">
+    <div class="form-cont stu-cont">
+        <form action="{{ url_for('auth.regstu') }}" method="post" id="stuForm" class="fform">
             <h1>Create A Student Account</h1>
             {{ stuForm.hidden_tag() }}
             <div class="input-field">
@@ -48,7 +47,7 @@
             {{ stuForm.submit(class_="register-btn") }}
         </form>
     </div>
-    <div class="overlay-container">
+    <div class="overlay-cont">
         <div class="overlay">
             <div class="overlay-panel overlay-left">
                 <h1>Are You A Student?</h1>
@@ -63,4 +62,5 @@
         </div>
     </div>
 </div>
+<br><br><br><br>
 {% endblock %}

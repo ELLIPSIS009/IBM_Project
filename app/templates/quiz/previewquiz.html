@@ -3,9 +3,14 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='content/quizstyle.css') }}">
 {% endblock %}
 {% block content %}
-<div class="preview-quiz-container" style="overflow: scroll;">
+<style>
+    .dk-footer{
+        display: none;
+    }
+</style>
+<div class="preview-quiz-container">
     <div id="quiz">
-        <h1 style="margin-top: 3rem;">{{ quiz.name }}</h1>
+        <h1 style="margin-top: 3rem;">{{ quiz.name }}</h1><br>
         <form action="{{ url_for('quiz.deletequiz', quizID=quiz.id) }}" method="post" class="create-form" style="margin: 1rem 0 3rem 0;">
             {{ delQuizForm.hidden_tag() }}
             {{ delQuizForm.submit(class_="delete-btn", placeholder="Delete Quiz") }}
@@ -46,4 +51,5 @@
     </div>
 
 </div>
+<br><br><br><br>
 {% endblock %}

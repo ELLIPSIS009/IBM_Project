@@ -1,12 +1,11 @@
-from flask import redirect, url_for, flash
+from flask import flash
 from app import db
-from app.models import Group, Post, Thread, User, Quiz
+from app.models import Post, Thread, User
 from app.group.group import validate_group_link
 from datetime import datetime
 
 
 def validate_post_link(user, groupID, threadID, postID):
-    # Check validity of link access first
     group = validate_group_link(user, groupID)
     if group is None:
         return 
@@ -33,9 +32,7 @@ def add_thread(user, group, title, content):
     thread = Thread(group=group,timestamp=datetime.now(), title=title)
     db.session.add(thread)
     db.session.flush()
-
     post = save_post(user, content, thread.id)
-    
     db.session.add(post)
     db.session.commit()
     return thread
@@ -47,7 +44,6 @@ def remove_thread(thread):
     db.session.commit()
 
 def get_post_users(posts):
-    '''Return user names as userID, name pairs in a dictionary'''
     users = {}
     for post in posts:
         if post.userID in users: continue

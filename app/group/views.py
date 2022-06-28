@@ -11,7 +11,6 @@ from app.models import User, Question, Option, Response, Group, Thread, Post, Pr
 from app.group.forms import *
 from app.base import *
 from app.group.group import *
-from app.decorator import check_confirmed
 
 import json
 

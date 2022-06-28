@@ -11,7 +11,6 @@ from app.models import User, Question, Option, Response, Group, Thread, Post, Pr
 from app.quiz.forms import *
 from app.base import *
 from app.quiz.questions import *
-from app.decorator import check_confirmed
 
 
 

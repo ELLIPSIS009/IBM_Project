@@ -3,8 +3,7 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='content/faqstyle.css') }}">
 {% endblock %}
 {% block content %}
-<!-- FAQ -->
-<section>
+<div>
     <div class="faq-container">
         <div class="search-bar">
             <input type="text" name="search" value="" autocomplete="off" id="searchInput" onkeyup="searchFunction()" placeholder="Search">
@@ -14,12 +13,12 @@
             <h1>FREQUENTLY ASKED QUESTIONS</h1>
             <div class="accordion-item" id="qn1">
                 <a href="#qn1" class="accordion-link">
-                    How is Knewbie Different from other virtual learning platforms?
+                    How is INFOBOT Different from other virtual learning platforms?
                     <i class="fas fa-plus"></i>
                 </a>
                 <div class="faq-ans">
-                    Firstly, it is important to note that Knewbie is meant to supplement educators in teaching and students in learning.
-                    Our current goal is not to be a stand-alone platform. The main feature that differentiates Knewbie is the usage of Computerized Adaptive Testing that will display questions based on the individual's proficiency.
+                    Firstly, it is important to note that INFOBOT is meant to supplement educators in teaching and students in learning.
+                    Our current goal is not to be a stand-alone platform. The main feature that differentiates INFOBOT is the usage of Computerized Adaptive Testing that will display questions based on the individual's proficiency.
                     This means good students get easier questions and better students get tougher questions. As the student learns and grows, so will the overall difficulty of questions.
                     This is to encourage students to learn instead of memorizing answers. It can be tough for educators to cater to the needs and pace of every student and this will generally allow the good students to catch up to the better ones if they put in the effort.
                 </div>
@@ -70,5 +69,6 @@
             </div>
         </div>
     </div>
-</section>
+</div>
+<br><br><br><br>
 {% endblock %}

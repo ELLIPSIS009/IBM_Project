@@ -15,7 +15,7 @@ main {
 }
 
 .forum-header h1 {
-    color: var(--LIGHTPURPLE);
+    color: #00FFFF;
     padding: 3rem 3rem 1rem 3rem;
     font-size: 3rem;
     text-align: center;
@@ -23,11 +23,12 @@ main {
 }
 
 .forum-header h5 {
-    color: var(--PURPLE);
+    color: white;
     padding: 0 3rem 3rem 3rem;
     font-size: 1.5rem;
     text-align: center;
     font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
 }
 
 .forum-header h5 a {
@@ -43,42 +44,33 @@ main {
 
 .forum-title {
     grid-area: title-header;
-    padding: 2rem 0 2rem 3rem;
+    margin-left: 12.5%;
+    width: 75%;
+    border-radius: 10px;
+    border: 2px solid white;
+    padding: 2rem;
     color: var(--OFFWHITE);
-    background: var(--LIGHTPURPLE);
+    background: #303030;
     border-top-left-radius: 0.4rem;
-}
-
-.forum-count {
-    grid-area: title-count;
     text-align: center;
-    padding: 2rem 0;
-    color: var(--OFFWHITE);
-    background: var(--LIGHTPURPLE);
-}
-
-.forum-time {
-    grid-area: title-time;
-    text-align: center;
-    padding: 2rem 0;
-    color: var(--OFFWHITE);
-    background: var(--LIGHTPURPLE);
-    border-top-right-radius: 0.4rem;
+    justify-content: space-between;
+    display: flex;
 }
 
 /* THREAD LINKS */
 
 .threads-grid {
+    width: 100%;
     display: grid;
-    grid-template-columns: 1fr 2.5fr 1fr 1fr 1fr;
+    grid-template-columns: 2fr 2fr 1fr 3fr 2fr;
     grid-template-areas: ". title count time .";
-    margin-left: 250px;
+    margin-left: 125px;
+    background: #1a1a1a;
 }
 
 .post-title {
     grid-area: title;
     padding: 1rem 1rem 1rem 3rem;
-    box-shadow: 0 2px 2px -2px gray;
 }
 
 .post-title a {
@@ -96,23 +88,21 @@ main {
     grid-area: count;
     padding: 1rem;
     text-align: center;
-    box-shadow: 0 2px 2px -2px gray;
 }
 
 .time-stamp {
     grid-area: time;
     padding: 1rem;
     text-align: center;
-    box-shadow: 0 2px 2px -2px gray;
 }
 
 .odd {
-    background: var(--OFFWHITE);
-    color: var(--LIGHTPURPLE);
+    color: #00FFFF;
+    background: #1a1a1a;
 }
 
 .odd a {
-    color: var(--LIGHTPURPLE);
+    color: #00FFFF;
 }
 
 .even {
@@ -122,4 +112,8 @@ main {
 
 .even a {
     color: white;
+}
+
+.dk-footer{
+    display: none;
 }

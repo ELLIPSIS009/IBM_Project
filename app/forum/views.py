@@ -1,25 +1,12 @@
-"""
-Routes and views for the flask application.
-"""
-
-from flask import render_template, request, flash, redirect, url_for, jsonify, make_response
-from flask_login import current_user, login_user, logout_user, login_required
-from flask_mail import Message
-from app import db, mail
+from flask import render_template, request, flash, redirect, url_for
+from flask_login import current_user, login_required
+from app import db
 from app.forum import bp
-from app.models import User, Question, Option, Response, Group, Thread, Post, Proficiency, Quiz
+from app.models import Thread, Post
 from app.forum.forms import *
 from app.base import *
 from app.forum.forum import *
-from app.decorator import check_confirmed
 
-# Routes for Class Forum
-# forum
-# forum/thread
-# forum/thread/<int:threadID>
-# forum/thread/<int:threadID>/delete
-# forum/thread/<int:threadID>/<int:postID>/delete
-# forum/thread/<int:threadID>/<int:postID>/edit
 @bp.route('/<int:groupID>')
 @bp.route('/<int:groupID>/forum')
 @login_required
@@ -36,10 +23,8 @@ def forum(groupID):
 def create_thread(groupID):
     # Check validity of link access first
     group = validate_group_link(current_user, groupID)
-
     # Render ThreadForm
     form = ThreadForm()
-
     # POST request for new thread
     if form.validate_on_submit():
         thread = add_thread(current_user, group, form.title.data, form.content.data)     

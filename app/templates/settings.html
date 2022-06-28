@@ -3,20 +3,14 @@
 {% block style %}
 <link rel="stylesheet" href="{{ url_for('static', filename='content/settingstyle.css') }}">
 {% endblock %}
-
 {% block message %}
 {% endblock %}
-
 {% block content %}
 <div id="settings" ontouchstart="true">
     <input checked="checked" class="settings-nav" name="settings-nav" type="radio" />
     <span class="settings-nav">Profile</span>
     <input class="settings-nav" name="settings-nav" type="radio" />
     <span class="settings-nav">Account</span>
-    <input class="settings-nav" name="settings-nav" type="radio" />
-    <span class="settings-nav">Privacy</span>
-    <input class="settings-nav" name="settings-nav" type="radio" />
-    <span class="settings-nav">Advanced</span>
     <main class="content">
         <section id="profile">
             <h1 style="text-align: center; padding-top: 5rem;">Update Details</h1>
@@ -91,9 +85,7 @@
                     {% endwith %}
                 </ul>
             </form>
-
         </section>
-
         <section id="account">
             <h1 style="text-align: center; padding-top: 3rem;">Change Password</h1>
             <form action="{{ url_for('main.change_pw') }}" method="post">
@@ -128,7 +120,6 @@
                             {{ render_error(pwForm.newPassword) }}
                         </fieldset>
                     </li>
-
                     <li>
                         <fieldset class="settings-input">
                             <div>
@@ -139,7 +130,6 @@
                             {{ render_error(pwForm.confirmPassword) }}
                         </fieldset>
                     </li>
-
                     <li class="large padding">
                         <fieldset class="settings-button center">
                             <div>
@@ -149,7 +139,6 @@
                     </li>
                 </ul>
             </form>
-
             <h1 style="text-align: center; padding-top: 3rem; width: 100vw; position: relative; margin: 0 auto;">Change Email Address</h1>
                 <ul>
                     <li class="large padding">
@@ -164,13 +153,7 @@
                     </li>
                 </ul>
         </section>
-
-        <section class="upcoming" id="privacy">
-            <h1>Coming soon!</h1>
-        </section>
-        <section class="upcoming" id="advanced">
-            <h1>Coming soon!</h1>
-        </section>
     </main>
 </div>
+<br><br><br><br>
 {% endblock %}

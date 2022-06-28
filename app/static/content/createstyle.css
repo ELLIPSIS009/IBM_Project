@@ -2,7 +2,7 @@
 
 /* NAVBAR COLOUR */
 .line {
-    background: linear-gradient(to right, var(--GREY), var(--LIGHTPURPLE));
+    background: linear-gradient(to right, var(--GREY), #00FFFF);
     width: 100%;
     height: 4px;
     border-radius: 1.5rem;
@@ -17,7 +17,7 @@
 }
 
 .create-class-wrapper {
-    background: var(--LIGHTPURPLE);
+    background: black;
     position: absolute;
     width: 100vw;
     height: 100%;
@@ -47,16 +47,19 @@
     display: block;
     text-align: center;
     font-size: 1.4rem;
-    color: var(--OFFWHITE);
+    color: black;
     transition-duration: 0.25s;
 }
 
 .create-form input {
-    background-color: rgba(255, 255, 255, 0.4);
+    background-color: rgba(49, 49, 49, 0.4);
+    border: 2px solid white;
+    border-radius: 5px;
+    color: white;
 }
 
 .create-form-1 input {
-    background-color: rgba(170, 7, 107, 0.3);
+    background-color: rgba(49, 49, 49, 0.4);
 }
 
 .create-form input:hover {
@@ -96,6 +99,8 @@ select {
     display: block;
     text-align: center;
     font-size: 1.5rem;
+    border: 2px solid white;
+    border-radius: 5px;
     color: var(--OFFWHITE);
 }
 
@@ -111,8 +116,8 @@ option::selection {
 }
 
 .center {
-    text-align: center;*/
-/*    padding:5rem;*/
+    text-align: center;
+    /*padding:5rem;*/
 }
 
 .submit-btn {
@@ -161,11 +166,12 @@ option::selection {
 }
 
 .modal-contents {
-    background-color: var(--OFFWHITE);
+    background-color: #303030;
+    border: 3px solid white;
     text-align: center;
     padding: 10rem;
     position: relative;
-    border-radius: .4rem;
+    border-radius: .6rem;
 }
 
 .quiz-size {
@@ -181,18 +187,18 @@ option::selection {
 
 .modal-contents h1 {
     margin: 1rem 0;
-    color: var(--PURPLE);
+    color: white;
     font-size: 4rem;
 }
 
 .modal-contents span {
-    color: var(--LIGHTPURPLE);
+    color: #00FFFF;
     font-size: 5rem;
 }
 
 .modal-contents p {
     font-size: 2rem;
-    color: var(--DARKPURPLE);
+    color: white;
 }
 
 .route-btn, .route2-btn {

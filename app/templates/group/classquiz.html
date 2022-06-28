@@ -3,8 +3,13 @@
 {% endblock %}
 {% block content %}
 {% include "sidebar.html" %}
-<div class="quiz-container">
-    <section class="box" id="topicalquiz">
+<style>
+    .dk-footer{
+        display: none;
+    }
+</style>
+<div class="quiz-container" style="margin-left: 150px;">
+    <div class="box" id="topicalquiz">
         <h1>Class Quizzes</h1>
         <div class="card-wrapper">
             {% for quiz in quizzes %}
@@ -20,9 +25,10 @@
             </div>
             {% endfor %}
         </div>
-    </section>
+    </div>
+    <br><br>
     {% if current_user.urole == 'educator' %}
-    <section class="box" id="topicalquiz">
+    <div class="box" id="topicalquiz">
         <h1>Your Own Quizzes</h1>
         <div class="card-wrapper">
             {% for quiz in current_user.quizzes %}
@@ -35,7 +41,8 @@
             {% endfor %}
         </div>
         {% if form %}
-        <form action="{{ url_for('group.add_class_quiz', groupID=group.id) }}" method="post">
+        <br><br>
+        <form action="{{ url_for('group.add_class_quiz', groupID=group.id) }}" class="class_quiz_form" method="post">
             {{ form.hidden_tag() }}
             {{ form.field() }}
             {{ form.submit() }}
@@ -43,8 +50,7 @@
         {% else %}
         <h2>No quizzes to assign.</h2>
         {% endif %}
-    </section>
-    
+    </div>
     {% endif %}
 </div>
 {% endblock %}

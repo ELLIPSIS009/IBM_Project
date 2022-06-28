@@ -1,12 +1,12 @@
 ﻿@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
 
 body {
-    background-color: var(--GREY);
+    background-color: black;
 }
 
 /* NAVBAR COLOUR */
 .line {
-    background: linear-gradient(to right, var(--GREY), var(--LIGHTPURPLE));
+    background: linear-gradient(to right, var(--GREY), #00FFFF);
     width: 100%;
     height: 4px;
     border-radius: 1.5rem;
@@ -33,8 +33,8 @@ span {
     font-size: 12px;
 }
 
-.container a {
-    color: var(--LIGHTPURPLE);
+.cont a {
+    color: blue;
     font-size: 14px;
     text-decoration: none;
     margin: 15px 0;
@@ -115,8 +115,8 @@ button {
     transform: translateY(1.5px);
 }
 
-form {
-    background-color: var(--OFFWHITE);
+.fform {
+    background-color: black;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -126,7 +126,7 @@ form {
     height: 100%;
 }
 
-.form-container .input-field input {
+.form-cont .input-field input {
     background-color: var(--GREY);
     padding: 12px 15px;
     margin: 8px 0;
@@ -134,7 +134,7 @@ form {
     border-radius: 1rem;
     border: none;
     outline: none;
-    color: var(--LIGHTPURPLE);
+    color: black;
 }
 
 input::placeholder {
@@ -142,51 +142,52 @@ input::placeholder {
     font-family: Montserrat, sans-serif;
 }
 
-.form-container h1 {
-    color: var(--PURPLE);
+.form-cont h1 {
+    color: #00FFFF;
 }
 
-.container {
-    background-color: var(--OFFWHITE);
-    position: absolute;
+.cont {
+    background-color: black;
+    position: relative;
     top: 0;
     overflow: hidden;
     width: 100%;
     height: 100vh;
 }
 
-.form-container {
+.form-cont {
     position: absolute;
     top: 0;
     height: 100%;
     transition: all 0.6s ease-in-out;
 }
 
-.stu-container {
+.stu-cont {
     left: 0;
     width: 50%;
     z-index: 2;
 }
 
-.container.right-panel-active .stu-container {
+.cont.right-panel-active .stu-cont {
     transform: translateX(100%);
 }
 
-.edu-container {
+.edu-cont {
     left: 0;
     width: 50%;
     opacity: 0;
     z-index: 1;
+    background-color: black;
 }
 
-.container.right-panel-active .edu-container {
+.cont.right-panel-active .edu-cont {
     transform: translateX(100%);
     opacity: 1;
     z-index: 5;
     animation: show 0.6s;
 }
 
-.overlay-container {
+.overlay-cont {
     position: absolute;
     top: 0;
     left: 50%;
@@ -197,7 +198,7 @@ input::placeholder {
     z-index: 1;
 }
 
-.container.right-panel-active .overlay-container {
+.cont.right-panel-active .overlay-cont {
     transform: translateX(-100%);
 }
 
@@ -217,7 +218,7 @@ input::placeholder {
     transition: transform 0.6s ease-in-out;
 }
 
-.container.right-panel-active .overlay {
+.cont.right-panel-active .overlay {
     transform: translateX(50%);
 }
 
@@ -240,7 +241,7 @@ input::placeholder {
     transform: translateX(-20%);
 }
 
-.container.right-panel-active .overlay-left {
+.cont.right-panel-active .overlay-left {
     transform: translateX(0);
 }
 
@@ -249,7 +250,7 @@ input::placeholder {
     transform: translateX(0);
 }
 
-.container.right-panel-active .overlay-right {
+.cont.right-panel-active .overlay-right {
     transform: translateX(20%);
 }
 

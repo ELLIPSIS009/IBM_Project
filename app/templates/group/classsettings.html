@@ -3,6 +3,11 @@
 {% endblock %}
 {% block content %}
 {% include "sidebar.html" %}
+<style>
+    .dk-footer{
+        display: none;
+    }
+</style>
 <div style="margin-left: 250px;">
     <header class="heading">
         <h1 class="title"><span>Class Settings</span></h1>
@@ -17,7 +22,7 @@
             {{ nameForm.submit(class_="edit-btn") }}
         </form>
     </div>
-
+    <br><br>
     <div>
         <h1>Change Class Code</h1>
         <form action="{{ url_for('group.update_class_code', groupID=group.id) }}" method="post">
@@ -25,7 +30,7 @@
             {{ codeForm.submit(class_="edit-btn") }}
         </form>
     </div>
-
+    <br><br>
     <div>
         <h1 style="color: red;">Delete Class</h1>
         <a href="{{ url_for('group.delete_class', groupID=group.id) }}" class="home-btn"><i class="fas fa-trash"></i><span>Delete Class</span></a>

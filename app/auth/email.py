@@ -1,7 +1,4 @@
-from flask import current_app, render_template, url_for, redirect, flash
-from flask_mail import Message
-from app import db, mail
-from app.models import User
+from flask import current_app, render_template, url_for, flash
 from app.auth.token import generate_confirmation_token
 from app.email import send_email
 

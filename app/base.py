@@ -1,7 +1,4 @@
-from flask import flash, redirect, url_for
-from app import db
-from app.models import User, Group, Response, Question, Topic, Proficiency
-
+from flask import  url_for
 from string import ascii_letters, digits
 from random import choice
 

@@ -46,4 +46,4 @@ class JoinClassForm(FlaskForm, StringFormMixin):
     submit = SubmitField('Join Class')
 
 class ChangeKnewbieForm(FlaskForm):
-    submit = SubmitField('Request A New Knewbie ID')
+    submit = SubmitField('Request A New User ID')

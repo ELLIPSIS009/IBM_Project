@@ -74,22 +74,15 @@ class Question(db.Model):
     topic = db.relationship('Topic', backref='questions')
     options = db.relationship('Option')
     answerID = db.Column(db.Integer)
-    #answer = db.relationship('Answer', backref=db.backref('question', uselist=False))
     responses = db.relationship('Response', backref='question')
     userID = db.Column(db.Integer, db.ForeignKey('user.id'))
     image_file = db.Column(db.String(20))
-    #type = db.Column(db.String(16), index=True, unique=True)
 
 class Option(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     qnID = db.Column(db.Integer, db.ForeignKey('question.id'))
     option = db.Column(db.String(255))
     responses = db.relationship('Response')
-    #answer = db.relationship('Answer', backref=db.backref('option', uselist=False))
-    #answerID = db.Column(db.Integer, db.ForeignKey('answer.id'))
-
-#class Answer(db.Model):
-#    id = db.Column(db.Integer, primary_key=True)
 
 class Response(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -135,17 +128,12 @@ class Proficiency(db.Model):
     topicID = db.Column(db.Integer, db.ForeignKey('topic.id'))
 
     def get_AI_responses(self):
-        '''Method to retrive Administered Items (AI) and response vector'''
-
-        # Retrieve stored responses from DB
         if self.topic.name == 'General':
             responses = Response.query.filter_by(userID=self.userID).join(Response.question)\
                 .filter(Question.user.has(admin=True)).all()
-        # Get only topic relevant responses
         else:
             responses = Response.query.filter_by(userID=self.userID).\
                 filter(Response.question.has(topicID=self.topicID)).all()
-
         questions = [response.question for response in responses]
         AI = []
         resp_vector = []

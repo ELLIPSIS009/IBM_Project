@@ -1,31 +1,28 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
 
 body {
-    background: var(--OFFWHITE);
-    color: var(--LIGHTPURPLE);
+    background: black;
+    color: white;
     font-family: 'Montserrat', sans-serif;
     font-size: 1rem;
 }
-
-/* HEADING FOR THREAD */
 
 .thread-title {
     display: grid;
     grid-template-columns: 1fr 1fr 2.5fr 1fr 1fr;
     grid-template-areas: ". back title delete .";
-/*    margin-left: 250px;*/
     margin-top: 3rem;
 }
 
 .thread-title a, .post-content a {
     text-decoration: none;
-    color: var(--DARKPURPLE);
+    color: #00FFFF;
     transition: ease-in-out 0.2s;
 }
 
 .thread-title a:hover {
     transform: scale(1.05);
-    color: var(--LIGHTPURPLE);
+    color: white;
 }
 
 .thread-title-text {
@@ -72,7 +69,7 @@ body {
     grid-area: name;
     text-transform: uppercase;
     font-size: 2.2rem;
-    background: white;
+    background: #303030;
     padding: 1rem;
     border-top-left-radius: 0.4rem;
 }
@@ -80,7 +77,7 @@ body {
 .post-edit {
     grid-area: edit;
     text-align: right;
-    background: white;
+    background: #303030;
     padding: 1rem;
     grid-template-columns: min-content auto
 }
@@ -88,7 +85,7 @@ body {
 .post-delete {
     grid-area: delete-post;
     text-align: left;
-    background: white;
+    background: #303030;
     padding: 1.5rem 1rem;
     border-top-right-radius: 0.4rem;
 }
@@ -99,7 +96,7 @@ body {
 
 .post-content a:hover {
     transform: translateY(-5px) scale(1.1);
-    color: var(--LIGHTPURPLE);
+    color: white;
     transition: ease-in-out 0.3s;
 }
 
@@ -112,8 +109,9 @@ body {
     grid-area: content;
     padding: 1rem;
     font-size: 1.7rem;
-    background: var(--LIGHTPURPLE);
-    color: var(--OFFWHITE);
+    background: #00FFFF;
+    color: black;
+    font-weight: 550;
     border-bottom-left-radius: 0.4rem;
     border-bottom-right-radius: 0.4rem;
 }
@@ -124,12 +122,13 @@ body {
     position: relative;
     padding: 1rem 1.5rem;
     font-size: 1rem;
+    font-weight: 700;
     letter-spacing: 1px;
     text-decoration: none;
     border: none;
     border-radius: .4rem;
-    background: var(--LIGHTPURPLE);
-    color: var(--OFFWHITE);
+    background: #00FFFF;
+    color: black;
     box-shadow: 3px 3px 1rem rgba(0, 0, 0, 0.3);
     outline: none;
     cursor: pointer;
@@ -158,7 +157,8 @@ body {
 
 .post-form {
     position: relative;
-    background: white;
+    background: #303030;
+    border: 2px solid white;
     border-radius: 0.4rem;
     padding: 5rem 0 3.2rem 0;
     box-sizing: border-box;
@@ -170,8 +170,8 @@ body {
 .form-heading {
     position: relative;
     z-index: 1;
-    border-left: 5px solid var(--LIGHTPURPLE);
-    color: var(--LIGHTPURPLE);
+    border-left: 5px solid #00FFFF;
+    color: #00FFFF;
     padding: 1rem 0;
     font-size: 2rem;
     font-weight: 500;
@@ -191,7 +191,7 @@ body {
     width: 100%;
     height: 40px;
     border: 0;
-    color: var(--LIGHTPURPLE);
+    color: #00FFFF;
     font-size: 1.5rem;
     font-weight: 400;
 }
@@ -208,7 +208,7 @@ body {
 }
 
 .input-container input:focus ~ label, .input-container input:valid ~ label {
-    color: var(--PURPLE);
+    color: #00FFFF;
     transform: translate(-12%, -40%) scale(0.85);
 }
 
@@ -224,7 +224,7 @@ body {
 .input-container .underline:before {
     content: '';
     position: absolute;
-    background: linear-gradient(to right, var(--LIGHTPURPLE), var(--PURPLE));
+    background: linear-gradient(to right, white, #00FFFF);
     width: 0;
     height: 3px;
     transition: .4s ease;
@@ -239,10 +239,15 @@ body {
 }
 
 .textarea {
-    color: var(--LIGHTPURPLE);
+    color: white;
+    background-color: #1a1a1a;
+    border: 2px solid white;
+    border-radius: 10px;
+    padding: 10px;
     resize: none;
     font-family: 'Montserrat', sans-serif;
     font-size: 1.6rem;
+    margin-left: -15px;
 }
 
 .post-btn {
@@ -256,7 +261,9 @@ body {
     text-decoration: none;
     border: none;
     border-radius: .4rem;
-    background: var(--LIGHTPURPLE);
+    background: #1a1a1a;
+    border: 2px solid white;
+    border-radius: 10px;
     color: var(--OFFWHITE);
     box-shadow: 3px 3px 1rem rgba(0, 0, 0, 0.3);
     outline: none;
@@ -266,8 +273,8 @@ body {
 
 .post-btn:hover {
     background: var(--OFFWHITE);
-    border: 1px solid var(--LIGHTPURPLE);
-    color: var(--LIGHTPURPLE);
+    border: 2px solid #00FFFF;
+    color: black;
 }
 
 .post-btn:active {

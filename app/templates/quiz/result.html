@@ -3,6 +3,11 @@
 <link rel="stylesheet" href="{{ url_for('static', filename='content/quizstyle.css') }}">
 {% endblock %}
 {% block content %}
+<style>
+    .dk-footer{
+        display: none;
+    }
+</style>
 <div class="quiz-container" style="overflow-y: scroll; margin-bottom: 8rem;">
     <div id="quiz" class="justify-center flex-column" style="height: 80vh; width: 100vw; margin: 20rem;">
         <h1>Score: <u> {{ correct }}/{{ questions | length }}</u></h1>
@@ -34,7 +39,7 @@
             {% endif %}
         </div>
         {% endfor %}
-        <a href="{{ url_for('main.dashboard') }}" class="edit-btn" style="margin-bottom: 5rem;">Back Home</a>
+        <a href="{{ url_for('main.dashboard') }}" class="edit-btn" style="margin-bottom: 5rem;">Back Home</a><br><br>
         {% if quiz %}
         <form action="{{ url_for('quiz.reattempt_edu', quizID=quiz.id) }}" method="post">
         {% else %}

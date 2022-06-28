@@ -38,9 +38,10 @@ $('.navbar a').on('click', function (e) {
 });
 
 // Reg form, slider
+
 const EducatorButton = document.getElementById('Educator');
 const StudentButton = document.getElementById('Student');
-const container = document.getElementById('container');
+const container = document.getElementById('cont');
 
 EducatorButton.addEventListener('click', () => {
   container.classList.add("right-panel-active");

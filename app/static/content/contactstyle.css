@@ -9,11 +9,10 @@
 
 body
 {
-    display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: var(--LIGHTPURPLE);
+    background: black;
 }
 
 .contact-container {
@@ -23,7 +22,7 @@ body
     position: relative;
     width: 100%;
     height: 100vh;
-    background: var(--LIGHTPURPLE);
+    background: black;
 }
 
 .contact-container .contact-form {

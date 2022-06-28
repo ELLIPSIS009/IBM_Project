@@ -11,8 +11,6 @@ from app.models import *
 from app.main.forms import *
 from app.main.profile import *
 from app.main.email import *
-from app.auth.email import get_confirm_url, send_conf_email
-from app.decorator import check_confirmed
 
 import json
 

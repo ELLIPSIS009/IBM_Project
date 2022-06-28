@@ -6,7 +6,8 @@
 
 body {
     font-family: 'Montserrat', sans-serif;
-    background: var(--OFFWHITE);
+    /* background: var(--OFFWHITE); */
+    background: black;
 }
 
 /* MAIN BODY */
@@ -24,11 +25,12 @@ img {
     max-width: 100%;
     height: auto;
     border-radius: 50%;
+    border: 4px solid white;
 }
 
 .box h1 {
     font-size: 5rem;
-    color: var(--LIGHTPURPLE);
+    color: white;
     letter-spacing: 2px;
     margin-right: -2px;
     margin-bottom: 4rem;
@@ -39,7 +41,7 @@ img {
     content: "";
     width: 10rem;
     height: .5rem;
-    background-color: var(--PURPLE);
+    background-color: #00FFFF;
     position: absolute;
     bottom: -1rem;
     left: 50%;
@@ -52,13 +54,13 @@ img {
 }
 
 .box h2 {
-    color: var(--LIGHTPURPLE);
+    color: #00FFFF;
     font-size: 3rem;
 }
 
 .box p {
     font-size: 1.6rem;
-    color: var(--PURPLE);
+    color: #FFCC66;
 }
 
 .join {
@@ -125,10 +127,11 @@ img {
     letter-spacing: 1px;
     text-decoration: none;
     color: var(--OFFWHITE);
-    background: var(--LIGHTPURPLE);
+    background-color: #303030;
+    border: 2px solid white;
     padding: 1rem 4rem;
     margin-top: 1rem;
-    border-radius: .4rem;
+    border-radius: .5rem;
     box-shadow: 3px 3px 1rem rgba(0, 0, 0, 0.3);
     cursor: pointer;
     outline: none;
@@ -170,7 +173,7 @@ img {
     display: flex;
     flex-direction: column;
     width: 32rem;
-    background-color: var(--GREY);
+    background-color: #303030;
     align-items: center;
     justify-content: center;
     margin: 2rem 0;
@@ -231,11 +234,11 @@ img {
     position: relative;
     width: 100%;
     height: 70%;
-    background: var(--GREY);
+    background: white;
 }
 
 .left h1 {
-    color: var(--LIGHTPURPLE);
+    color: black;
     font-size: 3.6rem;
 }
 
@@ -301,7 +304,7 @@ img {
   left: 0;
   background: url('../resources/images/Teacher.svg') center center no-repeat;
   background-size: 40vh;
-  background-color: rgba(0, 0, 0, .7);
+  background-color: #00FFFF;
 }
 
 .left::before {
@@ -354,4 +357,27 @@ img {
 
 .hover-right .left::before {
   z-index: 2;
+}
+.class_quiz_form{
+  width: 50%;
+  padding: 25px;
+  margin-left: 25%;
+  background-color: #303030;
+  border: 2px solid white;
+  border-radius: 10px;
+}
+.class_quiz_form input{
+  padding: 5px;
+  border: 2px solid white;
+  border-radius: 5px;
+  color: white;
+  font-weight: 600;
+  background-color: #1a1a1a;
+}
+.class_quiz_form ul{
+  list-style: none;
+}
+.class_quiz_form label{
+  font-size: 17.5px;
+  font-weight: 800;
 }

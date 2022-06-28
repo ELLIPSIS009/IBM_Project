@@ -7,7 +7,6 @@
 {% if success %}
 <h2 class="contact-form">Thank you for your message. We'll get back to you shortly.</h2>
 {% else %}
-<!-- Contact Us Form -->
 <div class="contact-container">
     <div class="contact-form">
         <form action="{{ url_for('main.contact') }}" method="post">
@@ -48,4 +47,5 @@
     </div>
 </div>
 {% endif %}
+<br><br><br><br>
 {% endblock %}

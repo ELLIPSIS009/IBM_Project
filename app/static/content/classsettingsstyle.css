@@ -2,8 +2,8 @@
     --start: 15%;
     height: 130px;
     top: 0;
-    background-image: repeating-radial-gradient(circle at var(--start), transparent 0%, transparent 10%, rgba(238, 238, 238, 0.33) 10%, rgba(238, 238, 238, 0.33) 17%), linear-gradient(to right, var(--GREY), var(--OFFWHITE));
-    color: var(--LIGHTPURPLE);
+    color: #00FFFF;
+    padding-top: 45px;
     position: absolute;
     overflow: hidden;
     z-index: 2;
@@ -77,8 +77,9 @@
     text-decoration: none;
     border: none;
     border-radius: .4rem;
-    background: var(--LIGHTPURPLE);
+    background: #303030;
     color: var(--OFFWHITE);
+    border: 2px solid white;
     box-shadow: 3px 3px 1rem rgba(0, 0, 0, 0.3);
     outline: none;
     cursor: pointer;
@@ -108,10 +109,10 @@
     text-align: center;
     font-size: 2rem;
     outline: none;
-    color: var(--LIGHTPURPLE);
+    color: white;
     border: none;
     background: none;
-    border-bottom: 3px solid var(--LIGHTPURPLE);
+    border-bottom: 3px solid white;
 }
 
 .input-field input::placeholder {

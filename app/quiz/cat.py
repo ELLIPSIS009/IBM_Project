@@ -37,7 +37,7 @@ class Student(object):
         self.d = {}
         self.items = self.get_items()
         # create a stopping criterion that will make tests stop after numqns items
-        self.stopper = MaxItemStopper(4) if numqns is None else MaxItemStopper(numqns)
+        self.stopper = MaxItemStopper(10) if numqns is None else MaxItemStopper(numqns)
 
     def update(self):
         '''Updates theta and returns item_index'''

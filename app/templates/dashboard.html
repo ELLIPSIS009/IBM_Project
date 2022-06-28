@@ -12,58 +12,27 @@
         <div class="details">
             <h2>{{ current_user.firstName }} {{ current_user.lastName }}</h2>
             {% if current_user.urole == 'student' %}
-            <p>Knewbie ID: {{ current_user.knewbie_id }} </p>
-            <a href="{{ url_for('main.progressreport') }}" class="btn">Progress Report</a>
+            <p>User ID: {{ current_user.knewbie_id }} </p>
             {% endif %}
         </div>
     </section>
-
     {% if current_user.urole == 'student' %}
     <section class="box" style="background: rgba(95, 78, 47, .07);">
-        <h1>Topical Quizzes</h1>
+        <h1>Practice Quizzes</h1>
         <div class="card-wrapper">
-            {% for topic in topics %}
             <div class="card">
                 <div class="card-background"></div>
                 <img src="{{ url_for('static', filename='resources/images/' + ('Student', 'Teacher', 'Contact') | random + '.svg') }} " class="quiz-symbol">
-                <h2>{{ topic.name }}</h2>
+                <h2>{{ topics[0].name }}</h2>
                 {% if respond %}
                 <a href="{{ url_for('quiz.result') }}" class="btn">View Result</a>
                 {% else %}
                 <a href="{{ url_for('quiz.quiz') }}" class="btn">Begin Quiz</a>
                 {% endif %}
             </div>
-            {% endfor %}
         </div>
     </section>
-
-    <section class="box" style="padding-bottom: 5rem;">
-        <h1>Mock Quizzes</h1>
-        <!--<div class="card-wrapper">
-            <div class="card">
-                <div class="card-background"></div>
-                <img src="../static/resources/images/Student.svg" class="quiz-symbol">
-                <h2>Elementary</h2>
-                <a href="{{ url_for('quiz.quiz') }}" class="btn">Begin Quiz</a>
-            </div>
-
-            <div class="card">
-                <div class="card-background"></div>
-                <img src="../static/resources/images/Teacher.svg" class="quiz-symbol">
-                <h2>Intermediate</h2>
-                <a href="{{ url_for('quiz.quiz') }}" class="btn">Begin Quiz</a>
-            </div>
-
-            <div class="card">
-                <div class="card-background"></div>
-                <img src="../static/resources/images/Contact.svg" class="quiz-symbol">
-                <h2>Advanced</h2>
-                <a href="{{ url_for('quiz.quiz') }}" class="btn">Begin Quiz</a>
-            </div>
-        </div>-->
-    </section>
     {% endif %}
-
     <section class="box" style="background: rgba(95, 78, 47, .07);">
         <h1>View Your Classes</h1>
         <div class="card-wrapper">
@@ -77,11 +46,11 @@
             </div>
             {% endfor %}
             {% else %}
-            <h2 style="margin: 1rem; color: #0C0A3E;">You do not have any classes yet. You can access your classes from here when you have joined one!</h2>
+            <h2 style="margin: 1rem;">You do not have any classes yet. You can access your classes from here when you have joined one!</h2>
             {% endif %}
         </div>
     </section>
-
+    <br><br>
     {% if current_user.urole == 'student' %}
     <section class="box" id="joinclass" style="margin-bottom: 5rem;">
         <div class="details">
@@ -93,7 +62,6 @@
             </form>
         </div>
     </section>
-
     {% elif current_user.urole == 'educator' %}
     <section class="box" id="viewquizzes">
         <h1>Preview Your Quizzes</h1>
@@ -108,11 +76,11 @@
             </div>
             {% endfor %}
             {% else %}
-            <h2 style="margin: 1rem; color: #0C0A3E;">You have not created any quizzes yet. You can access your quizzes from here when you have created one!</h2>
+            <h2 style="margin: 1rem;">You have not created any quizzes yet. You can access your quizzes from here when you have created one!</h2>
             {% endif %}
         </div>
     </section>
-    <!-- SPLIT SCREEN -->
+    <br><br>
     <div class="split-container" id="create">
         <div class="split left">
             <form action="{{ url_for('group.createclass') }}" method="post" class="create-form-1">
@@ -122,7 +90,6 @@
                 {{ classForm.submit(class_="submit-btn") }}
             </form>
         </div>
-
         <div class="split right">
             <form action="{{ url_for('quiz.createquiz') }}" method="post" class="create-form">
                 {{ quizForm.hidden_tag() }}
@@ -134,4 +101,5 @@
     </div>
     {% endif %}
 </div>
+<br><br><br><br>
 {% endblock %}
